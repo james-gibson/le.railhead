@@ -10,12 +10,17 @@
  * the site needs no parser dependency and the contract stays readable.
  */
 
-export type SectionId = 'brief' | 'arena' | 'verify' | 'ops' | 'seeds'
+export type SectionId = 'brief' | 'arena' | 'verify' | 'research' | 'ops' | 'seeds'
 
 export const SECTIONS: { id: SectionId; label: string; blurb: string }[] = [
   { id: 'brief', label: 'Brief', blurb: 'What Railhead is, the terms of the arena, and where the facts came from.' },
   { id: 'arena', label: 'Arena', blurb: 'Eleven models, ten years, and the run-off year that decides the score.' },
   { id: 'verify', label: 'Verify', blurb: 'Why the scoreboard does not trust the game, and which attacks are still open.' },
+  {
+    id: 'research',
+    label: 'Research',
+    blurb: 'How the studies team publishes a change through these docs, and what they cite.',
+  },
   { id: 'ops', label: 'Ops', blurb: 'Run it locally, rebuild the record on a schedule, and the agent entry.' },
   { id: 'seeds', label: 'Seeds', blurb: 'Bodies of knowledge with a stated audience, a stated assumption and an entrance.' },
 ]
@@ -96,4 +101,4 @@ export const routeOf = (page: Page) => `/${page.section}/${page.slug}`
 export const latestUpdate = () => PAGES.map((page) => page.updated).filter(Boolean).sort().at(-1) ?? 'unknown'
 
 /** Routes that are not Markdown: live views of data the build produced. */
-export const EXTRA_ROUTES = ['universe', 'known-gaps', 'design'] as const
+export const EXTRA_ROUTES = ['universe', 'studies', 'known-gaps', 'design'] as const

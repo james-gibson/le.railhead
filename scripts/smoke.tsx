@@ -65,6 +65,11 @@ for (const fact of ['T+02:05:45', 'technology:railhead:2026', '6158e15']) {
   if (!universe.includes(fact)) fail('universe', `is missing "${fact}"`)
 }
 
+const studies = strip(renderToString(<App path="/studies" />))
+for (const fact of ['freight-rate-shock', 'station-subsidy', 'timetable-discipline', '2026-11-14']) {
+  if (!studies.includes(fact)) fail('studies', `is missing "${fact}"`)
+}
+
 const gaps = strip(renderToString(<App path="/known-gaps" />))
 if (!gaps.includes('GAP 1')) fail('known-gaps', 'the ticket list is empty')
 

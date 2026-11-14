@@ -69,6 +69,20 @@ export const SEEDS: Seed[] = [
     touches: 'runs it locally and breaks it on purpose',
   },
   {
+    id: 'research',
+    title: 'The research team',
+    audience: 'The team that publishes a change here, and the reader who needs to know which world a study was run in.',
+    assumes: 'You know the study you are publishing. You do not need to know Railhead\'s code or build the engine.',
+    teaches: [
+      'the asymmetry: the team does not control upstream, so the pin is the citation, not a version bump',
+      'what a published change must carry — study, kind, pin, date — and why the conclusion is not republished here',
+      'which five facts a study cites from these docs, and the four it must not assume',
+    ],
+    entry: '/research/how-a-change-is-published',
+    rung: 3,
+    touches: 'publishes a change against a pin; does not touch the environment',
+  },
+  {
     id: 'agent-operations',
     title: 'Agent operations',
     audience: 'An LLM agent, or the person who points one at this repository.',

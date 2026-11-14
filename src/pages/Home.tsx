@@ -27,7 +27,8 @@ export function Home() {
           <a href="https://www.openttd.org">OpenTTD</a> first person, from a shell, with the same
           commands a human player has. There is no autopilot and no helper script: if a road has to
           be laid, the model lays it, tile coordinate by tile coordinate. This site is the record of
-          that project in local time — what it did, when, and what it cannot claim.
+          that project in local time — what it did, when, and what it cannot claim — and the shared
+          context a research team publishes its changes against.
         </p>
       </header>
 
@@ -121,6 +122,30 @@ export function Home() {
           </p>
         </div>
       </div>
+
+      <section className="stack" aria-labelledby="research">
+        <div className="row" style={{ justifyContent: 'space-between' }}>
+          <Heading level={2} id="research">
+            The studies team publishes here
+          </Heading>
+          <Tag tone="periwinkle" pattern="grid">
+            shared context
+          </Tag>
+        </div>
+        <div className="sheet stack">
+          <p style={{ margin: 0, maxWidth: '68ch' }}>
+            A research team studies economic questions by running them as OpenTTD simulations. They
+            do <b>not</b> control Railhead: they pin it, cite it, and record which world a study was
+            run in. Every research change — a stage move, a corrected finding, a new arm, a move to a
+            new pin — is published through these docs, with the pin it was read against.
+          </p>
+          <p className="meta" style={{ margin: 0 }}>
+            <a href={href('/studies')}>The register: three studies and the change log</a> ·{' '}
+            <a href={href('/research/how-a-change-is-published')}>how a change is published</a> ·{' '}
+            <a href={href('/research/context')}>what these docs provide</a>
+          </p>
+        </div>
+      </section>
 
       <StickyNote tone="mustard" footer={`upstream ${shortSha(upstream.pinnedSha)}, checked ${upstream.checkedAt.slice(0, 10)}`}>
         This site is rebuilt on a schedule and re-checks the upstream repository on every build. If

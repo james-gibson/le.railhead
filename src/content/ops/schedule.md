@@ -68,6 +68,11 @@ scoreboard from the network: those are authored facts with citations. A daily jo
 rewrote a page would make every other claim on the site unverifiable, so the job's only write is the
 snapshot the page then reads.
 
+It also does not fix anything. The studies team does not control Railhead, so a drift is **context,
+not a failure**: it tells the team that the world their studies were run in has moved on. The
+decision — re-run the arms at the new pin, or record that this study describes the old one — is
+theirs, and it is published through [the register](/studies), not applied here.
+
 ## Turning it off
 
 Delete the `schedule:` block. The site still deploys on push, and the committed pin becomes the only

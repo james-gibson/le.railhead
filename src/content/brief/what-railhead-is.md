@@ -62,3 +62,11 @@ not allowed to exist.
 - [The terms of the arena](/brief/the-terms): the mandate, the run-off year, and the score.
 - [Provenance](/brief/provenance): the version chain, the licences, and the commit this record pins.
 - [The universe](/universe): the same facts as a local-time record, with addresses you can check.
+
+## Who uses this record
+
+A research team studies economic questions by running them as OpenTTD simulations, and publishes
+every research change through these docs. They do not control Railhead — the environment, the
+verifier and the task catalog belong upstream — so the pin is the citation that makes two studies
+comparable. [The register](/studies) lists what they are studying; [how a change is
+published](/research/how-a-change-is-published) is the rule they follow.

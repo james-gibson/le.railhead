@@ -3,7 +3,8 @@
 ## This repository
 
 `le.railhead` is a public local-time record of `rachittshah/railhead`: an RL environment where
-language models play OpenTTD from a shell. It is a child seed of `james-gibson/le.gume`.
+language models play OpenTTD from a shell. It is a child seed of `james-gibson/le.gume`, and the
+shared context the studies team (`that-train-dashboard`) publishes its research changes against.
 
 Live: https://james-gibson.github.io/le.railhead/ · Repo: `james-gibson/le.railhead`
 
@@ -39,6 +40,10 @@ weaken a check to make a build pass; fix the output.
 
 ## Facts and their homes
 
+- **The studies register** lives in `src/lib/studies.ts`: the three studies, their stages, and the
+  publication log. A research change is a dated row carrying the study, the kind of change, the
+  upstream pin it was read against, and the date it was published here. Never promote a stage here —
+  copy it from the study page — and never summarise a conclusion; the study page keeps the argument.
 - **Arena numbers** live in `src/lib/arena.ts`, never in prose. A page that disagrees with that
   module is a bug the build cannot see; a page that reads it cannot drift.
 - **The verifier gaps** live in `src/lib/gaps.ts`, copied from the strict `xfail` tests upstream.
@@ -47,6 +52,13 @@ weaken a check to make a build pass; fix the output.
 - **Upstream state** is `src/data/upstream.json` (the committed pin) and
   `src/data/upstream.live.json` (this build's check, git-ignored). A scheduled job may write the
   second; nothing may rewrite authored content from the network.
+
+## The team does not control upstream
+
+Railhead belongs to its authors. The team pins it, cites it, and runs studies against it. A drift
+reported by the daily check is **context, not a failure**: it is the team's decision whether to re-run
+an arm at the new pin, and that decision is published as a row, never applied automatically. Do not
+write a page that implies this site can upgrade or patch the environment.
 
 ## Design
 

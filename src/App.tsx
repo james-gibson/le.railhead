@@ -6,6 +6,7 @@ import { Home } from '@/pages/Home'
 import { KnownGaps } from '@/pages/KnownGaps'
 import { NotFound } from '@/pages/NotFound'
 import { SectionIndex } from '@/pages/SectionIndex'
+import { Studies } from '@/pages/Studies'
 import { Universe } from '@/pages/Universe'
 import { EXTRA_ROUTES, getPage, SECTIONS, type SectionId } from '@/lib/content'
 
@@ -27,6 +28,7 @@ export function App({ path }: { path: string }) {
   let content = <NotFound />
   if (clean === '/') content = <Home />
   else if (clean === '/universe') content = <Universe />
+  else if (clean === '/studies') content = <Studies />
   else if (clean === '/known-gaps') content = <KnownGaps />
   else if (clean === '/design') content = <Design />
   else if (section && !slug && isSection(section)) content = <SectionIndex section={section} />

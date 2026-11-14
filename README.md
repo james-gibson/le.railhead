@@ -18,13 +18,21 @@ A **child seed** of [le.gume](https://github.com/james-gibson/le.gume): the same
 same derived navigation, the same prerender and the same publish gate, with a different question and
 a different design system.
 
-- **14 Markdown pages** in five sections — brief, arena, verify, ops, seeds — plus three live routes
-  (`/universe`, `/known-gaps`, `/design`).
+It is also the **shared context the studies team publishes against**. The team behind
+[that-train-dashboard](https://james-gibson.github.io/that-train-dashboard/) studies economic
+questions by running them as OpenTTD simulations. They do not control Railhead, so they pin it and
+cite the record; every research change — a stage move, a corrected finding, a new arm, a move to a new
+pin — is published here, with the pin it was read against.
+
+- **17 Markdown pages** in six sections — brief, arena, verify, research, ops, seeds — plus four live
+  routes (`/universe`, `/studies`, `/known-gaps`, `/design`).
 - **A local-time universe**: `src/universes/railhead.ts`, `technology:railhead:2026`, one epoch with
   a declared zero, four phases and sixteen keyframes — each one a commit, a tag, a published result
   or a document at the pinned commit.
 - **The pin**: every fact was read from `rachittshah/railhead` at `6158e15` (2026-11-10). The build
   re-checks upstream and publishes the drift.
+- **The studies register**: `src/lib/studies.ts` holds three studies, their stages, and every change
+  published through these docs, each with the pin it was read against.
 - **PlopUI**, MIT, as the design system — a different library from the parent's, on purpose. The
   pipeline did not change: that is the claim the swap is here to make checkable.
 
@@ -68,8 +76,10 @@ src/content/<section>/<slug>.md   one page per file; the path is the URL
 src/lib/content.ts                the content model, the sections, the live routes
 src/lib/arena.ts                  Arena 2 as data, with the commit it was read from
 src/lib/gaps.ts                   the five open verifier holes, from the upstream tests
+src/lib/studies.ts                the studies register and the publication log
 src/lib/upstream.ts               the snapshot: live if the check ran, else the pin
 src/universes/railhead.ts         the local-time universe this site renders
+src/pages/Studies.tsx             the register route
 src/components/plop/paper.tsx     the one PlopProvider
 scripts/upstream.mjs              the scheduled check
 scripts/postbuild.mjs             shells, 404, sitemap, robots, llms.txt, upstream.json, rules.md
@@ -79,6 +89,13 @@ scripts/smoke.tsx                 server-render every route
 
 Navigation, section indexes, `llms.txt` and the sitemap are derived from the file tree. There is no
 nav array to keep in step.
+
+## Publishing a research change
+
+A change is a dated row in `PUBLICATIONS` (`src/lib/studies.ts`) with four things: the study, the kind
+of change, the upstream pin it was read against, and the date it was published here. A stage is copied
+from the study page and never promoted here; conclusions stay on the study page. The rule, and what is
+deliberately not published, is `/research/how-a-change-is-published`.
 
 ## Licence
 

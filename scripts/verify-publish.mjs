@@ -9,7 +9,7 @@ import { createHash } from 'node:crypto'
 import { join, relative } from 'node:path'
 
 const DIST = 'dist'
-const EXTRA_ROUTES = ['universe', 'known-gaps', 'design']
+const EXTRA_ROUTES = ['universe', 'studies', 'known-gaps', 'design']
 const failures = []
 const notes = []
 const fail = (check, detail) => failures.push({ check, detail })
@@ -74,7 +74,11 @@ for (const route of routes) {
 }
 
 // 4. internal links resolve
-const known = new Set(['/', ...routes.map((route) => `/${route}`), '/universe', '/known-gaps', '/design'])
+const known = new Set([
+  '/',
+  ...routes.map((route) => `/${route}`),
+  ...EXTRA_ROUTES.map((route) => `/${route}`),
+])
 const llms = await readText(join(DIST, 'llms.txt'))
 for (const file of [...contentFiles, ...(await walk('src/pages')).filter((f) => f.endsWith('.tsx'))]) {
   const source = await readText(file)

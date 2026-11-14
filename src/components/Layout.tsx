@@ -6,6 +6,7 @@ import { href } from '@/lib/base'
 
 const EXTRA_LABEL: Record<(typeof EXTRA_ROUTES)[number], string> = {
   universe: 'Universe',
+  studies: 'Studies',
   'known-gaps': 'Known gaps',
   design: 'Design',
 }
@@ -62,8 +63,9 @@ export function Layout({ path, children }: { path: string; children: ReactNode }
 
         <p className="meta" style={{ margin: 0 }}>
           A child seed of{' '}
-          <a href="https://james-gibson.github.io/le.gume/">le.gume</a>. Same content model, same
-          gate, different question.
+          <a href="https://james-gibson.github.io/le.gume/">le.gume</a>. Shared context for{' '}
+          <a href="https://james-gibson.github.io/that-train-dashboard/">the studies team</a>, who
+          publish their research changes through these docs.
         </p>
       </aside>
 

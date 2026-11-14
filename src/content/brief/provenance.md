@@ -24,6 +24,10 @@ The build re-checks the upstream head on every run and records the answer. When 
 the page and the published `upstream.json` say so; when the build has no network, the committed pin
 is what ships and the snapshot is marked `source: "pinned"`. [How the check works](/ops/schedule).
 
+The pin is a **citation**, not a dependency the site controls: Railhead belongs to its authors, and
+this record cannot upgrade, patch or wait for it. A study that cites the pin is saying which world it
+was run in; the daily check says whether that world has moved since.
+
 ## The version chain
 
 | Version | State | What it is |

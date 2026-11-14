@@ -13,7 +13,7 @@ const CONTENT = 'src/content'
 const INDEX = join(DIST, 'index.html')
 
 /** Live routes: a route in src/pages/ with no content file. Declared once. */
-const EXTRA_ROUTES = ['universe', 'known-gaps', 'design']
+const EXTRA_ROUTES = ['universe', 'studies', 'known-gaps', 'design']
 
 try {
   await access(INDEX)
@@ -75,7 +75,12 @@ const shell = (key, title) => {
 }
 
 const TITLES = new Map(pages.map((page) => [page.route, page.title]))
-const EXTRA_TITLES = { universe: 'The record, in local time', 'known-gaps': 'Known gaps', design: 'Design' }
+const EXTRA_TITLES = {
+  universe: 'The record, in local time',
+  studies: 'The studies register',
+  'known-gaps': 'Known gaps',
+  design: 'Design',
+}
 
 for (const route of routes) {
   const dir = join(DIST, route)
@@ -134,7 +139,8 @@ const llmsLines = [
   '# le.railhead',
   '',
   'A local-time record of Railhead: a reinforcement-learning environment in which a',
-  'language model plays OpenTTD first person from a shell. A child seed of le.gume.',
+  'language model plays OpenTTD first person from a shell. A child seed of le.gume,',
+  'and the shared context the studies team publishes its research changes against.',
   '',
   'One page per Markdown file; the path is the URL; navigation, llms.txt and the',
   'sitemap are derived from the content tree plus three declared live routes.',
@@ -169,6 +175,7 @@ const llmsLines = [
   '### live routes',
   '',
   `- [The record, in local time](${SITE}/universe/): the local-time universe, rendered from src/universes/railhead.ts`,
+  `- [The studies register](${SITE}/studies/): three studies, their stages, and every research change published here`,
   `- [Known gaps](${SITE}/known-gaps/): the five open holes in the verifier, one ticket each`,
   `- [Design](${SITE}/design/): the PlopUI components the site uses, with the props it passes`,
   '',
@@ -185,6 +192,7 @@ const llmsLines = [
   '- Content is Markdown, never MDX. A live widget is a route in src/pages/.',
   '- The guard is the gate: a broken link, a missing shell or a missing snapshot stops the publish.',
   '- A scheduled build checks upstream and publishes the drift; it never rewrites authored content.',
+  '- A research change is published as a dated row with the pin it was read against; the study page keeps the argument.',
   '',
 ].filter((line) => line !== '')
 
