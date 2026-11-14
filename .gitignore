@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.prerender/
+.smoke/
+.DS_Store
+
+# The result of this build's upstream check, not a fact about the repository.
+src/data/upstream.live.json

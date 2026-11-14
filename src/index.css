@@ -1,0 +1,291 @@
+/* The paper does the styling; this file only does the page.
+ *
+ * PlopUI owns colour, shadow, corner and motion through its tokens, so there is
+ * no second palette here. What is here is the grid: a fixed rail on a wide
+ * screen, one column on a phone, and the typography for rendered Markdown,
+ * which is the one place raw elements are legitimate.
+ */
+
+:root {
+  color-scheme: light dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--plop-font-body);
+  color: var(--plop-on);
+  background: var(--plop-bg, var(--plop-paper));
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--plop-focus);
+  outline-offset: 3px;
+}
+
+.shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px 20px 64px;
+}
+
+@media (min-width: 960px) {
+  .shell {
+    grid-template-columns: 248px minmax(0, 1fr);
+    gap: 48px;
+  }
+}
+
+.rail {
+  display: grid;
+  gap: 22px;
+  align-content: start;
+  position: sticky;
+  top: 24px;
+  align-self: start;
+}
+
+@media (max-width: 959px) {
+  .rail {
+    position: static;
+  }
+}
+
+.rail nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.rail nav a {
+  display: block;
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.rail nav a[aria-current='page'] {
+  background: var(--plop-fill-periwinkle);
+  color: var(--plop-on-fill-periwinkle);
+}
+
+.rail nav a:hover {
+  text-decoration: underline;
+}
+
+.page {
+  display: grid;
+  gap: 28px;
+  min-width: 0;
+}
+
+.stack {
+  display: grid;
+  gap: 14px;
+}
+
+.stack[data-gap='tight'] {
+  gap: 6px;
+}
+.stack[data-gap='loose'] {
+  gap: 24px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.grid {
+  display: grid;
+  gap: 18px;
+}
+
+@media (min-width: 760px) {
+  .grid[data-cols='2'] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .grid[data-cols='3'] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.meta {
+  font-size: 13px;
+  color: var(--plop-on-soft);
+}
+
+.mono {
+  font-family: var(--plop-font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.sheet {
+  background: var(--plop-sheet);
+  color: var(--plop-on);
+  border: 2px solid var(--plop-line-a);
+  border-radius: 14px;
+  padding: 22px 22px;
+}
+
+/* Rendered Markdown inside a sheet. */
+.prose {
+  font-size: 16px;
+  line-height: 1.68;
+  max-width: 72ch;
+}
+
+.prose > * + * {
+  margin-top: 14px;
+}
+
+.prose h2 {
+  font-family: var(--plop-font-letter);
+  font-size: 24px;
+  line-height: 1.2;
+  margin: 32px 0 0;
+}
+
+.prose h3 {
+  font-family: var(--plop-font-letter);
+  font-size: 19px;
+  margin: 24px 0 0;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.25em;
+  display: grid;
+  gap: 6px;
+}
+
+.prose a {
+  color: var(--plop-ink-text);
+  text-decoration: underline;
+}
+
+.prose code {
+  font-family: var(--plop-font-mono);
+  font-size: 0.92em;
+  background: var(--plop-track);
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+.prose pre {
+  background: var(--plop-track);
+  border-radius: 10px;
+  padding: 14px 16px;
+  overflow-x: auto;
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.prose th,
+.prose td {
+  text-align: left;
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--plop-line-a);
+  vertical-align: top;
+}
+
+.prose th {
+  font-weight: 800;
+}
+
+.prose blockquote {
+  margin: 0;
+  border-left: 4px solid var(--plop-mint);
+  padding-left: 16px;
+  color: var(--plop-on-soft);
+}
+
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--plop-line-a);
+  margin: 28px 0;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+/* The timeline on /universe: one row per keyframe, the address in a fixed column. */
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.timeline li {
+  display: grid;
+  gap: 4px 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--plop-line-a);
+}
+
+@media (min-width: 720px) {
+  .timeline li {
+    grid-template-columns: 150px minmax(0, 1fr);
+  }
+}
+
+.timeline .address {
+  font-family: var(--plop-font-mono);
+  font-size: 12.5px;
+  color: var(--plop-on-soft);
+}
+
+.print-only {
+  display: none;
+}
+
+@media print {
+  .rail nav,
+  .no-print {
+    display: none !important;
+  }
+  .shell {
+    display: block;
+    max-width: none;
+  }
+}

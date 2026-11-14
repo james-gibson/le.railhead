@@ -1,0 +1,38 @@
+{
+  "name": "le-railhead",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A local-time record of Railhead: an RL environment where language models play OpenTTD from a shell.",
+  "homepage": "https://james-gibson.github.io/le.railhead/",
+  "license": "AGPL-3.0-only",
+  "scripts": {
+    "dev": "vite",
+    "upstream": "node scripts/upstream.mjs",
+    "build": "node scripts/upstream.mjs && tsc --noEmit && vite build && vite build --ssr scripts/prerender.tsx --outDir .prerender --emptyOutDir && node .prerender/prerender.js && node scripts/postbuild.mjs && node scripts/verify-publish.mjs",
+    "preview": "vite preview",
+    "smoke": "vite build --ssr scripts/smoke.tsx --outDir .smoke --emptyOutDir && node .smoke/smoke.js",
+    "guard": "node scripts/verify-publish.mjs",
+    "check": "tsc --noEmit",
+    "sync": "node scripts/sync-upstream.mjs"
+  },
+  "dependencies": {
+    "@plop-ui/fonts": "^0.5.1",
+    "@plop-ui/react": "^0.14.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-markdown": "10.1.0",
+    "remark-gfm": "4.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "6.3.0",
+    "typescript": "5.9.3",
+    "vite": "8.3.8"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

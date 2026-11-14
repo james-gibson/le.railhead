@@ -1,0 +1,14 @@
+{
+  "repo": "rachittshah/railhead",
+  "url": "https://github.com/rachittshah/railhead",
+  "pinnedSha": "6158e15907f9b644d8afbe3fccd8e42e0917cfc0",
+  "pinnedCommitAt": "2026-11-10T13:27:06Z",
+  "pinnedSubject": "Merge pull request #7 from rachittshah/stack/2026-11-sota",
+  "latestTag": "v0.1.1",
+  "latestTagAt": "2026-10-16T10:09:45Z",
+  "version": "0.1.2",
+  "versionStatus": "unreleased",
+  "checkedAt": "2026-11-14T00:00:00Z",
+  "source": "pinned",
+  "licence": "MIT (harness); GPL-2.0-only (engine patches and GameScript)"
+}
