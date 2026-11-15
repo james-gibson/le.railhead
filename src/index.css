@@ -136,9 +136,12 @@ button:focus-visible {
   }
 }
 
+/* Captions are 13px, so they need the full 4.5:1. `--plop-on-soft` only reaches
+ * 3.25:1 on light kraft (#3B4A92 on #C69C6D) — below AA — so the caption uses
+ * the surface ink; size and weight already carry the hierarchy. */
 .meta {
   font-size: 13px;
-  color: var(--plop-on-soft);
+  color: var(--plop-on);
 }
 
 .mono {
@@ -146,7 +149,20 @@ button:focus-visible {
   font-variant-numeric: tabular-nums;
 }
 
+/* A card is paper in both modes, so it has to pin its own ink.
+ *
+ * `--plop-sheet` and `--plop-track` are light-only tokens with no dark
+ * counterpart, while `--plop-on` / `--plop-on-soft` DO flip under
+ * `prefers-color-scheme: dark`. Inheriting them here painted cream ink
+ * (#FFF8E7) on cream paper (#FBF8F0) — 1.00:1, invisible — and every card on
+ * the deployed site went blank for a dark-mode reader. PlopUI's own
+ * `.plop-paper` solves it the same way: pin the pair, declare the scheme.
+ */
 .sheet {
+  color-scheme: light;
+  --plop-on: var(--plop-ink);
+  --plop-on-soft: var(--plop-ink-soft);
+  --plop-focus: var(--plop-ink);
   background: var(--plop-sheet);
   color: var(--plop-on);
   border: 2px solid var(--plop-line-a);
@@ -159,6 +175,9 @@ button:focus-visible {
   font-size: 16px;
   line-height: 1.68;
   max-width: 72ch;
+  /* A markdown table can be wider than a phone. The prose block is the
+     scroll container, so the page never scrolls sideways. */
+  overflow-x: auto;
 }
 
 .prose > * + * {
@@ -269,10 +288,12 @@ button:focus-visible {
   }
 }
 
+/* The timeline sits on the surface, not in a sheet: `--plop-on-soft` is 3.25:1
+ * on light kraft at 12.5px, so the address takes the surface ink as well. */
 .timeline .address {
   font-family: var(--plop-font-mono);
   font-size: 12.5px;
-  color: var(--plop-on-soft);
+  color: var(--plop-on);
 }
 
 .print-only {

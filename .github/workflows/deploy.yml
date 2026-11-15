@@ -32,8 +32,19 @@ jobs:
 
       - run: npm ci
 
-      # upstream check, tsc --noEmit, vite, prerender, shells, llms.txt, guard.
-      # A guard failure stops the deploy here, not in production.
+      # The seed manages its updates from its own rotation record: a gap, an
+      # unclosed cycle, or a rung of DEGRADED or worse refuses here. Read-only,
+      # so the workflow keeps a read-only token.
+      - run: npm run rotation -- gate
+
+      # The child follows the parent's rules on its own cycle. A rebuild that
+      # would deploy against an older rule list refuses here, and the fix is one
+      # `npm run sync` plus a commit — the rule arrives as a commit, so the
+      # build itself stays reproducible from the checkout.
+      - run: npm run rules
+
+      # upstream check, tsc --noEmit, contrast, vite, prerender, shells,
+      # llms.txt, guard. A guard failure stops the deploy here, not in production.
       - run: npm run build
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

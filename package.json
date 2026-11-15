@@ -9,12 +9,16 @@
   "scripts": {
     "dev": "vite",
     "upstream": "node scripts/upstream.mjs",
-    "build": "node scripts/upstream.mjs && tsc --noEmit && vite build && vite build --ssr scripts/prerender.tsx --outDir .prerender --emptyOutDir && node .prerender/prerender.js && node scripts/postbuild.mjs && node scripts/verify-publish.mjs",
+    "build": "node scripts/upstream.mjs && tsc --noEmit && node scripts/contrast.mjs && vite build && vite build --ssr scripts/prerender.tsx --outDir .prerender --emptyOutDir && node .prerender/prerender.js && node scripts/postbuild.mjs && node scripts/overflow.mjs && node scripts/verify-publish.mjs",
     "preview": "vite preview",
     "smoke": "vite build --ssr scripts/smoke.tsx --outDir .smoke --emptyOutDir && node .smoke/smoke.js",
     "guard": "node scripts/verify-publish.mjs",
+    "contrast": "node scripts/contrast.mjs",
     "check": "tsc --noEmit",
-    "sync": "node scripts/sync-upstream.mjs"
+    "sync": "node scripts/sync-upstream.mjs",
+    "rules": "node scripts/sync-upstream.mjs --check",
+    "rotation": "node scripts/rotation.mjs",
+    "overflow": "node scripts/overflow.mjs"
   },
   "dependencies": {
     "@plop-ui/fonts": "^0.5.1",

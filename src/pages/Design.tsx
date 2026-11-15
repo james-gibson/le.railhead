@@ -40,6 +40,12 @@ export function Design() {
             Colour, shadow, corners and motion are PlopUI tokens (<span className="mono">--plop-*</span>).
             This site adds one grid and one prose stylesheet; there is no second palette.
           </p>
+          <p className="meta" style={{ margin: 0 }}>
+            <span className="mono">theme="system"</span> is real: the kraft surface has a dark
+            variant. The cards stay paper in both modes — a light sheet with its ink pinned — because
+            PlopUI's sheet and track tokens are light only. <span className="mono">npm run contrast</span>{' '}
+            measures both modes and fails the build below 4.5:1.
+          </p>
         </div>
       </section>
 

@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 /**
- * Shells, 404, robots, sitemap, llms.txt, upstream.json and rules.md —
+ * Shells, 404, robots, sitemap, llms.txt, upstream.json, rules.md and rotations.json —
  * everything Pages needs and Vite does not know about. The route list is
  * derived from the content tree plus the declared live routes.
  */
 import { access, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
+
+import { readState } from './rotation-state.mjs'
 
 const SITE = 'https://james-gibson.github.io/le.railhead'
 const DIST = 'dist'
@@ -183,6 +185,7 @@ const llmsLines = [
   '',
   `- [upstream.json](${SITE}/upstream.json): the snapshot this build published`,
   `- [rules.md](${SITE}/rules.md): the rules this child follows, and its one override`,
+  `- [rotations.json](${SITE}/rotations.json): this seed's own rotation record — state, head, and distance`,
   `- [sitemap.xml](${SITE}/sitemap.xml): every route`,
   '',
   '## Invariants',
@@ -217,7 +220,13 @@ if (upstream) {
   )
 }
 
+// --- rotations.json: the seed's own record, published so it is checkable ----
+// RULES-06: a claim that the site does X must be checkable at the URL. "This
+// seed follows its own rotation record" is a claim, so the record is served.
+const rotationState = readState()
+await writeFile(join(DIST, 'rotations.json'), `${JSON.stringify(rotationState, null, 2)}\n`, 'utf8')
+
 await rm(PRERENDER, { recursive: true, force: true })
 console.log(
-  `postbuild: ${routes.length} shells, 404, sitemap, robots, llms.txt, upstream.json (${pages.length} pages)`,
+  `postbuild: ${routes.length} shells, 404, sitemap, robots, llms.txt, upstream.json, rules.md, rotations.json (${pages.length} pages)`,
 )
