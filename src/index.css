@@ -16,6 +16,22 @@
   box-sizing: border-box;
 }
 
+/* PlopUI draws a heading's underline as an inline SVG with a fixed width. On a
+ * 320px phone that is wider than the column, and because the heading is a grid
+ * item the track grows with it — the page scrolls sideways before any text is
+ * long enough to blame. The paper stays the paper; it just may not be wider
+ * than the page. */
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.stack > *,
+.page > *,
+.shell > * {
+  min-width: 0;
+}
+
 html,
 body {
   margin: 0;
