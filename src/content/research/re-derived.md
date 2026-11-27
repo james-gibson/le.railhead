@@ -34,8 +34,10 @@ public scenario block. No engine, no `start.sav`, no reward.
 | `arena` | 67 | 8 | 59 |
 
 **1,506 of 1,565** scenarios reproduce exactly, including `scenario_private`'s seed and generation
-seed. The IDs reproduce too: 1,388 tasks carry an opaque id, and every one of them hashes back to the
-`source_task_id` it records.
+seed. The identifiers reproduce as far as they can be checked: 1,388 tasks carry an opaque id beside a
+`source_task_id`, and every `source_task_id` recomposes to its own `(variant, split, seed)`. The hash
+from that seed id to the opaque one is **not** checkable from the repository — its salt is not
+published — so the ids are recorded here as self-consistent, not as re-derived.
 
 ## The arena exception
 
