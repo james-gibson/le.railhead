@@ -6,3 +6,5 @@
 {"event":"rotation","rotation":"r000003","isotope":"build","subject":"32dcdb2","gates":["build","smoke","guard"],"at":"2026-11-27T07:08:44.422Z"}
 {"event":"open","isotope":"build","note":"one page per task variant","at":"2026-11-27T07:11:50.729Z"}
 {"event":"rotation","rotation":"r000004","isotope":"build","subject":"32dcdb2","gates":["build","smoke","guard"],"at":"2026-11-27T07:11:53.527Z"}
+{"event":"open","isotope":"build","note":"station flow, the isometric prototype as a live route","at":"2026-11-27T07:19:14.535Z"}
+{"event":"rotation","rotation":"r000005","isotope":"build","subject":"32dcdb2","gates":["build","smoke","guard"],"at":"2026-11-27T07:19:17.299Z"}

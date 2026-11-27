@@ -101,4 +101,4 @@ export const routeOf = (page: Page) => `/${page.section}/${page.slug}`
 export const latestUpdate = () => PAGES.map((page) => page.updated).filter(Boolean).sort().at(-1) ?? 'unknown'
 
 /** Routes that are not Markdown: live views of data the build produced. */
-export const EXTRA_ROUTES = ['universe', 'studies', 'known-gaps', 'design'] as const
+export const EXTRA_ROUTES = ['universe', 'studies', 'known-gaps', 'station-flow', 'design'] as const

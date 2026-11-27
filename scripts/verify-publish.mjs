@@ -11,7 +11,7 @@ import { join, relative } from 'node:path'
 import { readState } from './rotation-state.mjs'
 
 const DIST = 'dist'
-const EXTRA_ROUTES = ['universe', 'studies', 'known-gaps', 'design']
+const EXTRA_ROUTES = ['universe', 'studies', 'known-gaps', 'station-flow', 'design']
 const failures = []
 const notes = []
 const fail = (check, detail) => failures.push({ check, detail })

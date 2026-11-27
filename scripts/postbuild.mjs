@@ -15,7 +15,7 @@ const CONTENT = 'src/content'
 const INDEX = join(DIST, 'index.html')
 
 /** Live routes: a route in src/pages/ with no content file. Declared once. */
-const EXTRA_ROUTES = ['universe', 'studies', 'known-gaps', 'design']
+const EXTRA_ROUTES = ['universe', 'studies', 'known-gaps', 'station-flow', 'design']
 
 try {
   await access(INDEX)
@@ -81,6 +81,7 @@ const EXTRA_TITLES = {
   universe: 'The record, in local time',
   studies: 'The studies register',
   'known-gaps': 'Known gaps',
+  'station-flow': 'Station flow',
   design: 'Design',
 }
 
@@ -145,7 +146,7 @@ const llmsLines = [
   'and the shared context the studies team publishes its research changes against.',
   '',
   'One page per Markdown file; the path is the URL; navigation, llms.txt and the',
-  'sitemap are derived from the content tree plus three declared live routes.',
+  'sitemap are derived from the content tree plus five declared live routes.',
   '',
   '## Pinned upstream',
   '',
@@ -177,8 +178,9 @@ const llmsLines = [
   '### live routes',
   '',
   `- [The record, in local time](${SITE}/universe/): the local-time universe, rendered from src/universes/railhead.ts`,
-  `- [The studies register](${SITE}/studies/): three studies, their stages, and every research change published here`,
+  `- [The studies register](${SITE}/studies/): five studies, their stages, and every research change published here`,
   `- [Known gaps](${SITE}/known-gaps/): the five open holes in the verifier, one ticket each`,
+  `- [Station flow](${SITE}/station-flow/): an isometric model of block occupancy, queueing and station dwell`,
   `- [Design](${SITE}/design/): the PlopUI components the site uses, with the props it passes`,
   '',
   '## Machine files',
@@ -191,7 +193,7 @@ const llmsLines = [
   '## Invariants',
   '',
   '- The path is the URL.',
-  '- Navigation is derived from the content tree, plus three declared live routes.',
+  '- Navigation is derived from the content tree, plus five declared live routes.',
   '- Content is Markdown, never MDX. A live widget is a route in src/pages/.',
   '- The guard is the gate: a broken link, a missing shell or a missing snapshot stops the publish.',
   '- A scheduled build checks upstream and publishes the drift; it never rewrites authored content.',

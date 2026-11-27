@@ -35,7 +35,8 @@ At the pin the six variants are 586 `deliver`, 249 `deliver_bid`, 183 `impossibl
 `simops`, `tycoon`), not the variant named here: `deliver_bid` and `impossible` are published under
 the `deliver` prefix, and an impossible task hides in a 9xxx seed range so its ID does not give it
 away. The counts above were re-derived from the data, not read off a table — see
-[what we re-derived](/research/re-derived).
+[what we re-derived](/research/re-derived). The signalling rule the tasks run under — blocks,
+reservations and the queue a dwell creates — is modelled live at [station flow](/station-flow).
 
 ## Splits
 

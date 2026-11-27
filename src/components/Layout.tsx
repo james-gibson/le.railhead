@@ -8,6 +8,7 @@ const EXTRA_LABEL: Record<(typeof EXTRA_ROUTES)[number], string> = {
   universe: 'Universe',
   studies: 'Studies',
   'known-gaps': 'Known gaps',
+  'station-flow': 'Station flow',
   design: 'Design',
 }
 

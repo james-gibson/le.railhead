@@ -24,8 +24,8 @@ questions by running them as OpenTTD simulations. They do not control Railhead, 
 cite the record; every research change — a stage move, a corrected finding, a new arm, a move to a new
 pin — is published here, with the pin it was read against.
 
-- **24 Markdown pages** in six sections — brief, arena, verify, research, ops, seeds — plus four live
-  routes (`/universe`, `/studies`, `/known-gaps`, `/design`).
+- **24 Markdown pages** in six sections — brief, arena, verify, research, ops, seeds — plus five live
+  routes (`/universe`, `/studies`, `/known-gaps`, `/station-flow`, `/design`).
 - **A local-time universe**: `src/universes/railhead.ts`, `technology:railhead:2026`, one epoch with
   a declared zero, four phases and sixteen keyframes — each one a commit, a tag, a published result
   or a document at the pinned commit.
