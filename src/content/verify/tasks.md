@@ -20,12 +20,12 @@ is an intention the data does not quite carry out.
 
 | Family | The job | Horizon | Run-off | Reward |
 | --- | --- | --- | --- | --- |
-| `deliver` | Deliver `Q` units of a cargo to one industry. | 300 days | 0 days | `min(1, D / Q)` |
-| `deliver_bid` | The same, plus a binding promise in the first 30 days. | 300 days | 0 days | linear map of `min(D, B) − max(0, B − D)` to 0–1 |
-| `impossible` | A `deliver` contract that no company can complete. | 300 days | 0 days | 1 if the agent abstains, else 0 |
-| `simops` | Repair a truck route that has one or two faults. | 60 days | 365 days | `clip((K − K0) / (K* − K0))` |
-| `tycoon` | Open play. Grow the net worth. | 365 days | 730 days | `clip(0.5 × (W − W_idle) / max(W_base − W_idle, 1))` |
-| `arena` | `tycoon` for several models on one map. | 5 or 10 years | 365 days | log of the gain, capped at 50× the baseline |
+| [`deliver`](/verify/deliver) | Deliver `Q` units of a cargo to one industry. | 300 days | 0 days | `min(1, D / Q)` |
+| [`deliver_bid`](/verify/deliver-bid) | The same, plus a binding promise in the first 30 days. | 300 days | 0 days | linear map of `min(D, B) − max(0, B − D)` to 0–1 |
+| [`impossible`](/verify/impossible) | A `deliver` contract that no company can complete. | 300 days | 0 days | 1 if the agent abstains, else 0 |
+| [`simops`](/verify/simops) | Repair a truck route that has one or two faults. | 60 days | 365 days | `clip((K − K0) / (K* − K0))` |
+| [`tycoon`](/verify/tycoon) | Open play. Grow the net worth. | 365 days | 730 days | `clip(0.5 × (W − W_idle) / max(W_base − W_idle, 1))` |
+| [`arena`](/verify/arena) | `tycoon` for several models on one map. | 5 or 10 years | 365 days | log of the gain, capped at 50× the baseline |
 
 `D` is the cargo delivered, `B` the promise, `K` the cargo delivered during the run-off (`K0` when
 doing nothing, `K*` after the oracle's repair), and `W` the net worth after the run-off.
