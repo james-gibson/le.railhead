@@ -24,14 +24,14 @@ questions by running them as OpenTTD simulations. They do not control Railhead, 
 cite the record; every research change — a stage move, a corrected finding, a new arm, a move to a new
 pin — is published here, with the pin it was read against.
 
-- **17 Markdown pages** in six sections — brief, arena, verify, research, ops, seeds — plus four live
+- **18 Markdown pages** in six sections — brief, arena, verify, research, ops, seeds — plus four live
   routes (`/universe`, `/studies`, `/known-gaps`, `/design`).
 - **A local-time universe**: `src/universes/railhead.ts`, `technology:railhead:2026`, one epoch with
   a declared zero, four phases and sixteen keyframes — each one a commit, a tag, a published result
   or a document at the pinned commit.
 - **The pin**: every fact was read from `rachittshah/railhead` at `6158e15` (2026-11-10). The build
   re-checks upstream and publishes the drift.
-- **The studies register**: `src/lib/studies.ts` holds three studies, their stages, and every change
+- **The studies register**: `src/lib/studies.ts` holds five studies, their stages, and every change
   published through these docs, each with the pin it was read against.
 - **PlopUI**, MIT, as the design system — a different library from the parent's, on purpose. The
   pipeline did not change: that is the claim the swap is here to make checkable.

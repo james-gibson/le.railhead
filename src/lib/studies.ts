@@ -72,6 +72,24 @@ export const STUDIES: Study[] = [
     url: `${TEAM.dashboard}studies/timetable-discipline/`,
     note: 'The failure is not gradual: the queue appears in one month and stays. The analyst refuses to call the failure point a property of the timetable.',
   },
+  {
+    slug: 'rng-comprehension',
+    title: 'RNG comprehension tests',
+    question: 'Does the team’s model of OpenTTD’s random generator survive measurement — and which claim fails first?',
+    stage: 'design',
+    studyUpdated: '2026-11-26',
+    url: `${TEAM.dashboard}studies/rng-comprehension/`,
+    note: 'Six probes: the null map, a draw census, the invertible step, the one-word release check, reseed spread, and the prediction sheet. Nothing is run yet.',
+  },
+  {
+    slug: 'contested-corridors',
+    title: 'Contested corridors',
+    question: 'When three companies converge on the same town, does a dated pre-plan plus a cheap triage tier beat the scripts’ race?',
+    stage: 'design',
+    studyUpdated: '2026-11-26',
+    url: `${TEAM.dashboard}studies/contested-corridors/`,
+    note: 'Four arms and a plan-time broker. The digest — the typed brief the frontier tier sees — is named as the open design decision, not assumed.',
+  },
 ]
 
 export type Publication = {
@@ -97,6 +115,13 @@ export const PUBLICATIONS: Publication[] = [
     study: 'freight-rate-shock, station-subsidy, timetable-discipline',
     change:
       'Register opened: three studies published at the stage recorded on their own pages (running, design, analysis), with the pin they are described against.',
+    pin: '6158e15',
+  },
+  {
+    date: '2026-11-27',
+    study: 'rng-comprehension, contested-corridors',
+    change:
+      'Two studies opened at design stage, both derived from gibsunas/openttd#80: the RNG probe set and the triage-plus-pre-plan design. In the same cycle, every task spec was re-derived from its seed and the catalog numbers on this site were corrected.',
     pin: '6158e15',
   },
 ]

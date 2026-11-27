@@ -1,2 +1,4 @@
 {"event":"open","isotope":"rules","note":"29d863e (up to date)","at":"2026-11-15T08:56:45.083Z"}
 {"event":"rotation","rotation":"r000001","isotope":"rules","subject":"29d863e","gates":["build","smoke","guard","contrast"],"at":"2026-11-15T08:56:45.174Z"}
+{"event":"open","isotope":"build","note":"re-derived catalog + two studies published","at":"2026-11-27T07:07:22.884Z"}
+{"event":"rotation","rotation":"r000002","isotope":"build","subject":"32dcdb2","gates":["build","smoke","guard"],"at":"2026-11-27T07:07:25.589Z"}

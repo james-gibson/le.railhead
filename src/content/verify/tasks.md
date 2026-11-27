@@ -1,17 +1,20 @@
 ---
 title: The catalog
-description: About 1,540 certified tasks in six families, a scripted oracle, and no secret held out of the public repository.
+description: 1,565 tasks in six families, 1,558 certificates, a scripted oracle, and no secret held out of the public repository.
 order: 2
-updated: 2026-11-14
+updated: 2026-11-27
 tags: verify, tasks, harbor
 seeds: operator
 ---
 
 # The catalog
 
-The arenas are the spectacle. The training data is about **1,540 generated tasks**, and every one is
-certified before it is kept: the generator plays it with a scripted oracle and with a do-nothing log,
-and deletes the task unless the oracle's replay is valid and beats doing nothing.
+The arenas are the spectacle. The tracked catalog is **1,565 task directories**, and the generator
+certifies before it keeps: it plays the task with a scripted oracle and with a do-nothing log, and
+deletes the task unless the oracle's replay is valid and beats doing nothing. At the pin the
+repository holds **1,558 certificates**, all of them valid. The seven tasks without one are
+`tycoon`, and three of those have no oracle log either — so "every task in the catalog is certified"
+is an intention the data does not quite carry out.
 
 ## Six families
 
@@ -26,6 +29,13 @@ and deletes the task unless the oracle's replay is valid and beats doing nothing
 
 `D` is the cargo delivered, `B` the promise, `K` the cargo delivered during the run-off (`K0` when
 doing nothing, `K*` after the oracle's repair), and `W` the net worth after the run-off.
+
+At the pin the six variants are 586 `deliver`, 249 `deliver_bid`, 183 `impossible`, 370 `simops`,
+110 `tycoon` and 67 `arena`. The `family` field in `task.json` is the **reward** family (`deliver`,
+`simops`, `tycoon`), not the variant named here: `deliver_bid` and `impossible` are published under
+the `deliver` prefix, and an impossible task hides in a 9xxx seed range so its ID does not give it
+away. The counts above were re-derived from the data, not read off a table — see
+[what we re-derived](/research/re-derived).
 
 ## Splits
 
